@@ -40,5 +40,12 @@ public class MyWorld extends World
         player.setLocation(63,486);
         player.setLocation(60,513);
         player.setLocation(48,554);
+        player.setLocation(76,570);
+        Projectile projectile = new Projectile();
+        addObject(projectile,76,570);
+        player.setLocation(79,570);
+        player.setLocation(76,566);
+        player.setLocation(54,554);
+        wide2.setLocation(696,666);
     }
 }

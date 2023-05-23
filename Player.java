@@ -27,8 +27,16 @@ public class Player extends Actor
         fall();
         landOnTop();
         moveAround();
+        fireProject();
     }
     
+    public void fireProject()
+    {
+        if(Greenfoot.mousePressed(null))
+        {
+            getWorld().addObject(new Projectile(), getX(), getY());
+        }
+    }
     public void moveAround()
     {
         if(Greenfoot.isKeyDown("right"))
@@ -66,7 +74,7 @@ public class Player extends Actor
     
     public void jump()
     {
-        if(Greenfoot.isKeyDown("a"))
+        if(Greenfoot.isKeyDown("up"))
         {
             vSpeed = -8;
         }
