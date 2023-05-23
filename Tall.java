@@ -18,6 +18,6 @@ public class Tall extends Ground
     }
     public void act()
     {
-        // Add your action code here.
+        move(-1);
     }
 }

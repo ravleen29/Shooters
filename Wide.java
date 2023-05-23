@@ -21,6 +21,6 @@ public class Wide extends Ground
     }
     public void act()
     {
-        // Add your action code here.
+        move(-1);
     }
 }

@@ -13,6 +13,7 @@ public class Player extends Actor
     public int accel = 0;
     public int speed = 5;
     
+    boolean canFire = true;
     public Player()        
     {
         GreenfootImage myImage = getImage();
@@ -27,14 +28,19 @@ public class Player extends Actor
         fall();
         landOnTop();
         moveAround();
-        fireProject();
+        fireProjectile();
     }
     
-    public void fireProject()
+    public void fireProjectile()    
     {
-        if(Greenfoot.mousePressed(null))
+        if (Greenfoot.isKeyDown("space") && canFire == true)
         {
-            getWorld().addObject(new Projectile(), getX(), getY());
+            getWorld().addObject(new Projectile(), getX()-30, getY());
+            canFire = false;
+        }
+        else if (!Greenfoot.isKeyDown("space"))
+        {
+            canFire = true;
         }
     }
     public void moveAround()
