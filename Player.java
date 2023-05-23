@@ -15,8 +15,26 @@ public class Player extends Actor
         int myNewWidth = (int)myImage.getWidth()/5;
         myImage.scale(myNewWidth, myNewHeight);
     }
+    int vSpeed = 0;
+    int accel = 0;
     public void act()
     {
-        
+        fall();
+        checkFalling();
+    }
+    public void fall()
+    {
+        setLocation(getX(),getY() + vSpeed);
+    }
+    public void checkFalling()
+    {
+        if(!isTouching(Ground.class))
+        {
+            vSpeed++;
+        }
+        else 
+        {
+            vSpeed = 0;
+        }
     }
 }

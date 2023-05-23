@@ -15,7 +15,7 @@ public class MyWorld extends World
      */
     public MyWorld()
     {    
-        super(1000, 700, 1); 
+        super(1000, 700, 1, false); 
         getBackground().setColor(new Color(135,206,235));
         getBackground().fill();
         prepare();
@@ -36,5 +36,9 @@ public class MyWorld extends World
         addObject(wide2,500,666);
         wide2.setLocation(642,665);
 
+        player.setLocation(40,576);
+        player.setLocation(63,486);
+        player.setLocation(60,513);
+        player.setLocation(48,554);
     }
 }
