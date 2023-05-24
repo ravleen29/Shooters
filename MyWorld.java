@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-   
+    HealthBar healthbar = new HealthBar();
+    Counter counter = new Counter();
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -22,15 +23,23 @@ public class MyWorld extends World
     }
     public void act()
     {
-        addEnemy();
+        //addEnemy();
     }
     public void addEnemy()
     {
         if(Greenfoot.getRandomNumber(80)<1)
         {
-        addObject(new Enemy(), Greenfoot.getRandomNumber(400), 0);  // randomly adding the enemies into the world to avoid
-                                                                    // overcrowding.
+        addObject(new Enemy(), Greenfoot.getRandomNumber(900), 0);  
+        }
     }
+    public Counter getCounter()
+    {
+        return counter;  
+    }
+    
+    public HealthBar getHealthBar()
+    {
+        return healthbar;  
     }
     
     /**
@@ -118,5 +127,18 @@ public class MyWorld extends World
         addObject(enemy5,1055,495);
         enemy5.setLocation(1858,539);
         enemy5.setLocation(986,505);
+        Counter counter = new Counter();
+        addObject(counter,76,35);
+        counter.setLocation(196,47);
+        HealthBar healthBar = new HealthBar();
+        addObject(healthBar,1930,24);
+        Enemy enemy6 = new Enemy();
+        addObject(enemy6,838,250);
+        Enemy enemy7 = new Enemy();
+        addObject(enemy7,1684,244);
+        Enemy enemy8 = new Enemy();
+        addObject(enemy8,1791,473);
+        Enemy enemy9 = new Enemy();
+        addObject(enemy9,1932,182);
     }
 }

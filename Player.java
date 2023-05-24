@@ -11,7 +11,7 @@ public class Player extends Actor
     private int vSpeed = 0;
     private int gravity = 2;
     private int accel = 0;
-    private int speed = 2;
+    private int speed = 5;
     
     boolean canFire = true;
     public Player()        
@@ -88,7 +88,7 @@ public class Player extends Actor
     {
         if(Greenfoot.isKeyDown("up"))
         {
-            vSpeed = -3;
+            vSpeed = -8;
         }
         fall();
     }
