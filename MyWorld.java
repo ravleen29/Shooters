@@ -8,17 +8,29 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-
+   
     /**
      * Constructor for objects of class MyWorld.
      * 
      */
     public MyWorld()
     {    
-        super(3000, 700, 1, false); 
+        super(2000, 610, 1, false); 
         getBackground().setColor(new Color(135,206,235));
         getBackground().fill();
         prepare();
+    }
+    public void act()
+    {
+        addEnemy();
+    }
+    public void addEnemy()
+    {
+        if(Greenfoot.getRandomNumber(80)<1)
+        {
+        addObject(new Enemy(), Greenfoot.getRandomNumber(400), 0);  // randomly adding the enemies into the world to avoid
+                                                                    // overcrowding.
+    }
     }
     
     /**
@@ -90,5 +102,21 @@ public class MyWorld extends World
         Tall tall16 = new Tall(50, 30);
         addObject(tall16,2740,248);
         tall16.setLocation(2710,247);
+        Enemy enemy = new Enemy();
+        addObject(enemy,1158,344);
+        enemy.setLocation(1224,372);
+        Enemy enemy2 = new Enemy();
+        addObject(enemy2,1220,105);
+        enemy2.setLocation(1187,112);
+        Enemy enemy3 = new Enemy();
+        addObject(enemy3,2100,260);
+        enemy3.setLocation(2064,297);
+        Enemy enemy4 = new Enemy();
+        addObject(enemy4,2534,88);
+        enemy4.setLocation(2512,73);
+        Enemy enemy5 = new Enemy();
+        addObject(enemy5,1055,495);
+        enemy5.setLocation(1858,539);
+        enemy5.setLocation(986,505);
     }
 }

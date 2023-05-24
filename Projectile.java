@@ -30,7 +30,7 @@ public class Projectile extends Actor
     {
        if(getY() == 0)
         {
-            getWorld().removeObject(this);
+         getWorld().removeObject(this);
             
         }
     }

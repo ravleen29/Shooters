@@ -12,7 +12,8 @@ public class Enemy extends Actor
      * Act - do whatever the Enemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    int speed = -3;
+    int speed = -1;
+    int count = 0;
     public Enemy()        
     {
         GreenfootImage myImage = getImage();
@@ -22,22 +23,46 @@ public class Enemy extends Actor
     }    
     public void act()
     {
+        count++;
         moveAround();
+        hitByProjectile();
+        removeEnemy();
     }
-    public void moveOnTop()
-    {
-       if(isTouching(Ground.class))
-       {
-           setLocation(getX(), getY() - 1);
-       }
-    }
+    
     public void moveAround()
     {
-        
-        setLocation(getX() + speed, getY());
-        if(getY() == 0) {
-            speed = 0;
+        if(count<60)
+        {
+            move(-1);
+            setLocation(getX() + speed, getY());
+        }
+        else{
+            speed = -speed;
+            getImage().mirrorHorizontally();
+            count = 0;
+        }
+    }
+    
+    public void hitByProjectile()      
+    {
+         Actor projectile =  getOneIntersectingObject(Projectile.class);
+        if (projectile != null)
+        {
+            getWorld().removeObject(projectile);
+            World world = getWorld();
+            MyWorld myWorld = (MyWorld)world;
+            getWorld().removeObject(this);
         } 
-   
+           
+        else if(getY() == 599)
+        {
+            World world = getWorld();
+            MyWorld myWorld = (MyWorld)world;
+            getWorld().removeObject(this);
+        }
+    }
+    public void removeEnemy()
+    {
+        
     }
 }

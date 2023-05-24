@@ -18,6 +18,13 @@ public class Tall extends Ground
     }
     public void act()
     {
+        if(Greenfoot.isKeyDown("right"))
+        {
         move(-1);
+        }
+        if(Greenfoot.isKeyDown("left"))
+        {
+        move(1);
+        }
     }
 }

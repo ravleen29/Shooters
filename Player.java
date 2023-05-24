@@ -8,10 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Actor
 {
-    public int vSpeed = 0;
-    public int gravity = 2;
-    public int accel = 0;
-    public int speed = 5;
+    private int vSpeed = 0;
+    private int gravity = 2;
+    private int accel = 0;
+    private int speed = 2;
     
     boolean canFire = true;
     public Player()        
@@ -25,7 +25,7 @@ public class Player extends Actor
     {
         jump();
         checkFall();
-        fall();
+        onground();
         landOnTop();
         moveAround();
         fireProjectile();
@@ -47,11 +47,11 @@ public class Player extends Actor
     {
         if(Greenfoot.isKeyDown("right"))
         {
-            setLocation(getX() + speed, getY());
+           move(1);
         }
         else if(Greenfoot.isKeyDown("left"))
         {
-            setLocation(getX() - speed, getY());
+            move(-1);
         }
     }
     public void landOnTop()
@@ -61,10 +61,16 @@ public class Player extends Actor
            setLocation(getX(), getY() - 1);
        }
     }
+    boolean onground()
+    {
+        Actor under = getOneObjectAtOffset(0, getImage().getHeight()/2,Tall.class);
+        return under != null;
+    }
     
     public void fall()
     {
         setLocation(getX(),getY() + vSpeed);
+        vSpeed = vSpeed + accel;
     }
     
     public void checkFall()
@@ -82,8 +88,9 @@ public class Player extends Actor
     {
         if(Greenfoot.isKeyDown("up"))
         {
-            vSpeed = -8;
+            vSpeed = -3;
         }
         fall();
     }
+    
 }
